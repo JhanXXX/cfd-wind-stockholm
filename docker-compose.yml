@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  openfoam:
+    image: openfoam/openfoam11-paraview510
+    container_name: stockholm_wind_sim
+    volumes:
+      - ./:/home/openfoam/project
+      - ./data:/home/openfoam/data
+      - ./results:/home/openfoam/results
+    working_dir: /home/openfoam/project
+    environment:
+      - WM_PROJECT_DIR=/opt/openfoam11
+      - FOAM_RUN=/home/openfoam/project
+      - DISPLAY=${DISPLAY}
+    network_mode: host
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+    
+  python-gis:
+    image: osgeo/gdal:ubuntu-small-latest
+    container_name: stockholm_gis
+    volumes:
+      - ./:/home/project
+      - ./data:/home/data
+      - ./results:/home/results
+    working_dir: /home/project
+    environment:
+      - PYTHONPATH=/home/project
+    stdin_open: true
+    tty: true
+    command: /bin/bash
