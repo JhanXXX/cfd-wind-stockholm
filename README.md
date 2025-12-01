@@ -1,4 +1,6 @@
-# Urban Wind Field Simulation for Stockholm - Complete Guide
+# Urban Wind Field Simulation for Stockholm (Updating)
+
+I haven't finishing debugging!
 
 ## Project Overview
 This project simulates urban wind fields using OpenFOAM CFD to model the Urban Heat Island effect and assess local climate conditions at pedestrian level in Stockholm.
